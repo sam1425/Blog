@@ -39,6 +39,7 @@
     --card-border: 2px solid var(--fg2);
     --card-padding: 10px 15px;
     --card-background: var(--bg_h);
+    --tooltip-content: 'Forgot to put something on this tooltip';
 }
 body
 {
@@ -71,7 +72,25 @@ body
     justify-content: center;
     gap: 15px;
 }
+.navbar
+{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
 
+    display: flex;
+
+    width: 100%;
+
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background: rgba(40, 40, 40, .8);
+    background-color: rgba(17, 25, 40, .1);
+
+    justify-content: center;
+    backdrop-filter: blur(1px) saturate(30%);
+}
 h2
 {
     font-family: shorthike;
@@ -96,7 +115,6 @@ ul
 a
 {
     color: #fff;
-
     text-shadow: 0 0 5px #fff;
 }
 
@@ -104,12 +122,10 @@ a:hover
 {
     animation: glowup 0.7s ease-in-out infinite alternate;
     will-change: transform;
-    transform: (0);
 }
 .sidebar a
 {
     text-decoration: none;
-
     color: var(--fg);
     text-shadow: 0 0 5px #fff;
 }
@@ -120,199 +136,63 @@ a:hover
     gap: 20px;
     align-items: center;
 }
-
-.card
-{
-
+.card, .sidebar, .sidebar2, .floatingCard {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
-    width: 100%;
-    max-width: 700px;
-    height: auto;
     padding: 10px 15px;
-
     border: 2px solid var(--fg2);
     border-radius: 4px;
     background: var(--bg_h);
-
     justify-content: center;
     align-items: flex-start;
 }
 
-.card::after
-{
+.card {
+    width: 100%;
+    max-width: 700px;
+}
+
+.card::after, .sidebar::after, .sidebar2::after, .floatingCard::after {
     position: absolute;
     z-index: -2;
     top: 3px;
     left: -4px;
-
     width: 100%;
     height: 100%;
-
     content: '';
-
     border-radius: 0;
     background-color: black;
-    box-shadow: -2px 2px 0 black,
-    -4px 4px 0 black,
-    -6px 6px 0 black;
-}
-
-.navbar
-{
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-
-    display: flex;
-
-    width: 100%;
-
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    background: rgba(40, 40, 40, .8);
-    background-color: rgba(17, 25, 40, .1);
-
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(1px) saturate(30%);
+    box-shadow: var(--shadow-black);
 }
 
 .sidebar
 {
     font-family: 'ttfs';
     font-size: 1.3em;
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
     padding: 0px 0px;
-
-    border: 2px solid var(--fg2);
-    border-radius: 4px;
-    background: var(--bg_h);
-
-    justify-content: center;
-    align-items: flex-start;
-
-    width: auto;
     min-width: 150px;
-    max-width: auto;
-    height: auto;
-
     justify-content: normal;
-    align-items: top;
-}
-
-.sidebar::after
-{
-    position: absolute;
-    z-index: -2;
-    top: 3px;
-    left: -4px;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-
-    border-radius: 0;
-    background-color: black;
-    box-shadow: -2px 2px 0 black,
-    -4px 4px 0 black,
-    -6px 6px 0 black;
 }
 
 .sidebar2
 {
     font-size: 1.3em;
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
     padding: 0px 0px;
-
-    border: 2px solid var(--fg2);
-    border-radius: 4px;
-    background: var(--bg_h);
-
-    justify-content: center;
-    align-items: flex-start;
-
-    width: auto;
     min-width: 150px;
-    max-width: auto;
-    height: auto;
-
     justify-content: normal;
-    align-items: top;
 }
 
-.sidebar2::after
-{
-    position: absolute;
-    z-index: -2;
-    top: 3px;
-    left: -4px;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-
-    border-radius: 0;
-    background-color: black;
-    box-shadow: -2px 2px 0 black,
-    -4px 4px 0 black,
-    -6px 6px 0 black;
-}
 .floatingCard
 {
     position: absolute;
     right: 80px;
 
-    display: flex;
-    flex-direction: column;
-
     min-width: 100px;
-    max-width: 100px;
-    height: auto;
+
     height: 100px;
-    margin-top: 800px;
+    margin-top: 300px;
     padding: 10px 15px;
-
-    border: 2px solid var(--fg2);
-    border-radius: 4px;
-    background: var(--bg_h);
-
-    justify-content: center;
-    align-items: flex-start;
-    align-items: center;
-}
-
-.floatingCard::after
-{
-    position: absolute;
-    z-index: -2;
-    top: 3px;
-    left: -4px;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-
-    border-radius: 0;
-    background-color: black;
-    box-shadow: -2px 2px 0 black,
-    -4px 4px 0 black,
-    -6px 6px 0 black;
 }
 
 .tooltip
@@ -326,7 +206,7 @@ a:hover
 
 .tooltip::after
 {
-    font-family: 'ttfs';
+    font-family: '';
     font-size: 1rem;
 
     position: absolute;
@@ -338,7 +218,7 @@ a:hover
     width: auto;
     padding: 5px;
 
-    content: 'to spend time visiting a lot of websites'; /* Tooltip text */
+    content: var(--tooltip-content);
     transition: opacity .3s ease,
     visibility .3s ease;
     transform: translateX(-50%);
@@ -353,14 +233,12 @@ a:hover
 .tooltip:hover::after
 {
     visibility: visible; /* Show the tooltip on hover */
-
     opacity: 1;
 }
 
 .tooltip:not(:hover)::after
 {
     visibility: hidden; /* Hide tooltip smoothly */
-
     opacity: 0;
 }
 
@@ -396,19 +274,26 @@ a:hover
     font-size: 40px;
 
     position: fixed;
-    right: 0; /* Positions the text on the right */
-    bottom: 0; /* Positions the text at the bottom */
+    right: 0;
+    bottom: 0;
 
-    padding-right: 20px; /* Adds some padding around the text */
+    padding-right: 20px;
     padding-bottom: 5px;
 
     color: white;
     text-shadow: 2px 2px 0 black,
     /* Shadow to the right and bottom */ -2px -2px 0 black,
     /* Shadow to the left and top */ 2px -2px 0 black,
-    /* Shadow to the left and top */ -2px 2px 0 black; /* Shadow to the right and bottom */
+    /* Shadow to the left and top */ -2px 2px 0 black;
 }
 
+#copy
+{
+    font-family: 'ttfs';
+    font-size: 1rem;
+    color: var(--fg);
+    background: var(--bg);
+}
 @keyframes glowup
 {
     0%
@@ -440,7 +325,6 @@ a:hover
     .sidebar
     {
         width: 100%;
-        min-width: auto;
     }
 
     .CardContainer
