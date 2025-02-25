@@ -3,61 +3,59 @@
     font-family: c0mplex;
 
     src: url('src/font/MonaspaceArgon-WideExtraBold.woff') format('woff');
+    font-display: swap;
 }
 @font-face
 {
     font-family: daydream;
 
     src: url('src/font/Daydream.ttf') format('truetype');
+
+    font-display: swap;
 }
 @font-face
 {
     font-family: shorthike;
 
     src: url('src/font/shorthike.ttf') format('truetype');
+    font-display: swap;
 }
 @font-face
 {
     font-family: ttfs;
 
     src: url('src/font/ApplyBeef.ttf') format('truetype');
+    font-display: swap;
 }
 @font-face
 {
     font-family: index;
 
     src: url('src/font/SkateC.ttf') format('truetype');
+    font-display: swap;
 }
-
+:root {
+    --shadow-black: -2px 2px 0 black, -4px 4px 0 black, -6px 6px 0 black;
+    --card-border: 2px solid var(--fg2);
+    --card-padding: 10px 15px;
+    --card-background: var(--bg_h);
+}
 body
 {
     position: relative;
     z-index: 0;
-    top: 0;
-    left: 0;
 
     display: flex;
     flex-direction: column;
 
-    width: 100%;
-    height: 100%;
     min-height: 100vh;
     margin: 0;
 
     background-image: url('src/img/010.jpg');
-    background-size: 400px 400px;
+    background-size: 400px;
 
-    justify-content: center;
     align-items: center;
     overflow-x: hidden;
-}
-
-#backwrap
-{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
 }
 
 #content
@@ -65,7 +63,6 @@ body
     display: flex;
     flex-direction: row;
 
-/*     width: 100%; */
     max-width: 1100px;
     margin-top: 115px;
     margin-bottom: 20px;
@@ -75,11 +72,6 @@ body
     gap: 15px;
 }
 
-#leftside
-{
-    top: 115px;
-    height: fit-content;
-}
 h2
 {
     font-family: shorthike;
@@ -104,28 +96,27 @@ ul
 a
 {
     color: #fff;
+
     text-shadow: 0 0 5px #fff;
 }
 
 a:hover
 {
     animation: glowup 0.7s ease-in-out infinite alternate;
+    will-change: transform;
+    transform: (0);
 }
 .sidebar a
 {
     text-decoration: none;
 
-    color: #fff;
+    color: var(--fg);
     text-shadow: 0 0 5px #fff;
 }
 .CardContainer
 {
     display: flex;
     flex-direction: column;
-
-    /* width: 100%; */
-    height: auto;
-
     gap: 20px;
     align-items: center;
 }
@@ -180,9 +171,7 @@ a:hover
     display: flex;
 
     width: 100%;
-    height: auto;
 
-    border: 1px solid rgba(255, 255, 255, .125);
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     background: rgba(40, 40, 40, .8);
@@ -512,7 +501,6 @@ a:hover
     li a
     {
         font-size: .9rem;
-
         padding: 8px 15px;
     }
     h2
