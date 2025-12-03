@@ -58,12 +58,13 @@ body {
     display: flex;
     flex-direction: row;
 
-    max-width: 1080px;
+    /* max-width: 1080px; */
     margin-top: 115px;
-    margin-bottom: 20px;
-    padding: 0 20px;
+    /* margin-bottom: 20px; */
+    /* padding: 0 20px; */
 
     justify-content: center;
+    /* align-items: center; */
     gap: 15px;
 }
 
@@ -106,10 +107,11 @@ body {
     background: var(--bg_h);
     justify-content: center;
     align-items: flex-start;
+    max-width: 500px;
 }
 
-.card {
-    max-width: 800px;
+.cardmax {
+    max-width: 1000px;
 }
 
 .card::after,
@@ -296,6 +298,37 @@ a:hover {
     
     color: var(--fg);
 }
+.middlecard{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 850;
+}
+
+.about-left-column {
+    flex: 0 0 320px;
+    min-width: 320px;
+}
+
+.about-right-column {
+    flex: 1;
+    min-width: 364px;
+}
+
+
+
+@media (max-width: 768px) {
+    .about-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .about-left-column,
+    .about-right-column {
+        flex: 1;
+        min-width: auto;
+    }
+}
+
 
 @keyframes glowup {
     0% {
@@ -326,7 +359,7 @@ a:hover {
 
     .CardContainer {
         width: 100%;
-        margin-left: 6px;
+        /* margin-left: 5px; */
 
         align-items: center;
     }
