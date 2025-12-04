@@ -63,7 +63,7 @@
                         </li>
                         <li>
                             <span class="info">Favorite color:</span>
-                            <span style="color: cyan">This one</span>
+                            <span class="tooltip" style="color: cyan;--tooltip-color: #00ffff; --tooltip-content: &quot;#00ffff&quot;"><span>This one</span></span>
                         </li>
                         <li>
                             <span class="info">Strengths:</span> logical
@@ -153,5 +153,36 @@
         <footer>
             <span id="copy">🞜 c0mplex © 2025.</span>
         </footer>
+    <script>
+        const colorTooltip = document.querySelector('span.tooltip[style*="#00ffff"]');
+        
+        if (colorTooltip) {
+            colorTooltip.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const styleAttr = colorTooltip.getAttribute('style') || '';
+                const match = styleAttr.match(/--tooltip-content:\s*['"]?([^';"]*)['"]?/);
+                const tooltipContent = match ? match[1] : '';
+                
+                if (tooltipContent) {
+                    // Fallback method for older browsers or local files
+                    const textArea = document.createElement('textarea');
+                    textArea.value = tooltipContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    const originalContent = colorTooltip.textContent;
+                    colorTooltip.textContent = '<Copied>';
+                    setTimeout(() => {
+                        colorTooltip.textContent = originalContent;
+                    }, 1500);
+                } else {
+                    console.error('No tooltip content found');
+                }
+            });
+        }
+    </script>
+
     </body>
 </html>
