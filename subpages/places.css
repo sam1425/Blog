@@ -22,6 +22,10 @@
     font-display: swap;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+}
 .navbar
 {
 	position: absolute;
@@ -31,12 +35,11 @@
 
 	display: flex;
 	width: 100%;
+	height: 80px;
 
 	border-bottom-right-radius: 12px;
 	border-bottom-left-radius: 12px;
 	text-shadow: 2px 2px 5px rgba(255,255,255,1);
-	/*background: rgba(40, 40, 40, 0.8);*/
-	/*background-color: rgba(17, 25, 40, 0.1);*/
 
 	justify-content: center;
 	align-items: center;
@@ -60,7 +63,7 @@ body
 
     display: flex;
 
-    height: 100vh;
+    height: auto;
     margin: 0;
     padding-top: 30px;
 
@@ -70,6 +73,7 @@ body
 
     align-items: center;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 h1
@@ -81,8 +85,8 @@ h1
 .card
 {
     position: relative;
-    min-width: 450px;
-    max-width: 450px;
+    min-width: 380px;
+    max-width: 500px;
 
     width: calc(33.333% - 7px);
 
@@ -105,8 +109,9 @@ h1
     position: relative;
     flex-wrap: wrap; 
 
-    max-width: 1000px;
-    height: 100%;
+    width: 100%
+    max-width: 1500px;
+    height: auto;
     padding: 10px 20px;
 
     border: 4px solid #282828;
@@ -115,9 +120,8 @@ h1
 
     justify-content: center;
     align-items: flex-start;
-    margin: 40px;
+    margin: 20px auto;
     flex-direction: rows;
-    top: 58px;
 }
 
 .masonry {
@@ -150,9 +154,10 @@ img{
 
   /*margin-bottom: 6px;*/
   border-radius: 4px;
-  object-fit: cover;
-  display: block;
-  break-inside: avoid;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    break-inside: avoid;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 ul,
@@ -166,8 +171,20 @@ li
 }
 #copy
 {
+    display:  block;
+    position: absolute;
 	text-shadow: 2px 2px 5px rgba(255,255,255,1);
     bottom: 0px;
     padding: 0px;
-    
 {
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+	    height: 20px;
+    }
+    #places {
+        font-size: 1rem;
+    }
+    #places
+}
