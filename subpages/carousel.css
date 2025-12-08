@@ -61,6 +61,7 @@
 ol,
 li {
     list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
@@ -81,19 +82,20 @@ li {
     counter-reset: item;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+  /*border-radius: 4px;*/
 }
 .carousel__slide {
     position: relative;
     flex: 0 0 100%;
     width: 100%;
-    background-color: #f99;
+    background-color: #b790bb;
     counter-increment: item;
 }
 .carousel__slide:nth-child(even) {
-    background-color: #99f;
+    background-color: #b790bb;
 }
 .carousel__slide:before {
-    content: counter(item);
+    /*content: counter(item);*/
     position: absolute;
     top: 50%;
     left: 50%;
