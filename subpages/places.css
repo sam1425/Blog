@@ -1,0 +1,165 @@
+@font-face {
+    font-family: sunday;
+    src: url("fonts/Sunday Traveling.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: fairy;
+    src: url("fonts/Fairytale.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: crossland;
+    src: url("fonts/Crossland.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: veloria;
+    src: url("fonts/aveloria.regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+.navbar
+{
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	width: 100%;
+
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	text-shadow: 2px 2px 5px rgba(255,255,255,1);
+	/*background: rgba(40, 40, 40, 0.8);*/
+	/*background-color: rgba(17, 25, 40, 0.1);*/
+
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(1px) saturate(30%);
+	padding: 20px 0; 
+}
+#content
+{
+	padding: 30px 0; 
+}
+
+#places
+{
+	font-family: fairy;
+	font-size: 4rem;
+}
+
+body
+{
+    font-family: catfont1;
+
+    display: flex;
+
+    height: 100vh;
+    margin: 0;
+    padding-top: 30px;
+
+    text-align: center;
+    background-image: url("seamless.jpg");
+    background-repeat: ;
+    /*background: linear-gradient(to bottom, #fcf, #cff); */
+
+    align-items: center;
+    flex-direction: column;
+}
+
+h1
+{
+    font-family: catfont2;
+    font-size: 3rem;
+}
+
+.card
+{
+    position: relative;
+    max-width: 450px;
+
+    padding: 10px 10px;
+
+    border: 4px solid #282828;
+    border-radius: 10px;
+    background: #b790bb;
+
+
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px;
+}
+.CardContainer
+{
+
+    display: flex;
+    position: relative;
+
+    max-width: 1000px;
+    padding: 10px 20px;
+
+    border: 4px solid #282828;
+    border-radius: 10px;
+    background: #8cbdaa;
+
+    justify-content: center;
+    align-items: flex-start;
+    margin: 40px;
+    flex-direction: rows;
+    top: 58px;
+}
+
+.masonry {
+  column-count: 1; /* Number of columns */
+  column-gap: 6px;
+  padding: 0px;
+}
+
+/*.masonry img {*/
+  /*width: 100%j*/
+  /*margin-bottom: 6px;*/
+  /*border-radius: 4px;*/
+  /*display: block;*/
+  /*break-inside: avoid;*/
+  /*box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+/*}*/
+
+.cardholder{
+	display: flex;
+
+	text-align: center;
+
+	align-items: center;
+	flex-direction: row;
+}
+
+img{
+	align-items: center;
+  width: 100%;
+
+  /*margin-bottom: 6px;*/
+  border-radius: 4px;
+  display: block;
+  break-inside: avoid;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+ul,
+li
+{
+    padding: 0;
+    margin: 0;
+    list-style-type: none; 
+    font-family: veloria;
+    font-size: 2rem;
+}
+#copy
+{
+	text-shadow: 2px 2px 5px rgba(255,255,255,1);
+    bottom: 0px;
+{
