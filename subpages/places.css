@@ -62,6 +62,7 @@ body
 
     height: 100vh;
     margin: 0;
+    padding-top: 30px;
 
     text-align: center;
     background-image: url("pics/seamless.jpg");
@@ -83,7 +84,6 @@ h1
     min-width: 450px;
     max-width: 450px;
 
-
     width: calc(33.333% - 7px);
 
     padding: 10px 10px;
@@ -102,10 +102,10 @@ h1
 {
 
     display: flex;
-    flex-wrap: wrap;
     position: relative;
+    flex-wrap: wrap; 
 
-    max-width: 1500px; 
+    max-width: 1000px;
     height: 100%;
     padding: 10px 20px;
 
@@ -116,6 +116,7 @@ h1
     justify-content: center;
     align-items: flex-start;
     margin: 40px;
+    flex-direction: rows;
     top: 58px;
 }
 
@@ -149,6 +150,7 @@ img{
 
   /*margin-bottom: 6px;*/
   border-radius: 4px;
+  object-fit: cover;
   display: block;
   break-inside: avoid;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -164,11 +166,8 @@ li
 }
 #copy
 {
-    align-items:center;
-    justify-content:center;
-    display: block;
-    position: absolute;
 	text-shadow: 2px 2px 5px rgba(255,255,255,1);
     bottom: 0px;
-    left:0px;
-}
+    padding: 0px;
+    
+{
