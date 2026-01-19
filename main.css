@@ -1,3 +1,6 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
 /* Main stylesheet for blog*/
 
 /* Font declarations */
@@ -53,6 +56,8 @@ body {
 
     background-image: url("src/img/010.jpg");
     background-size: 400px;
+    background-repeat: repeat;
+    background-attachment: fixed;
 
     align-items: center;
     overflow-x: hidden;
@@ -71,9 +76,7 @@ body {
     justify-content: center;
     gap: 15px;
 
-    /*width: 100%;*/
-    /*max-width: 1000;*/
-    /*box-sizing: border-box;*/
+    max-width: 1400px;
 }
 
 .navbar {
@@ -100,9 +103,11 @@ body {
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
+    min-width: 0;
     max-width: 780px;
-    width: 100%;
-    box-sizing: border-box;
+    flex: 1;
+    width: auto;
+    flex: 1;
 }
 
 .card,
@@ -119,7 +124,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     max-width: 780px;
-    box-sizing: border-box;
 }
 
 .cardmax {
@@ -142,6 +146,16 @@ body {
     box-shadow: var(--shadow-black);
 }
 
+
+.sidebar,
+.sidebar2
+{
+    width: 220px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+
 .sidebar {
     font-family: "ttfs", var(--font-sans);
     font-size: 1.3em;
@@ -150,17 +164,20 @@ body {
     min-width: 200px;
     width: 100%;
     max-width: 780px;
-    box-sizing: border-box;
     justify-content: normal;
 }
 
 .sidebar2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    /*gap: 8px;*/
+    height: fit-content;
     font-size: 1.3em;
-    padding: 0px 15px;
+    padding: 0px 0px;
     min-width: 150px;
     max-width: 200px;
+    align-self: flex-start;
+    flex-shrink: 0;
 }
 
 .floatingCard {
@@ -318,7 +335,6 @@ button:focus,
     flex-wrap: wrap;
     max-width: 780px;
     width: 100%;
-    box-sizing: border-box;
     align-items: stretch;
     margin-left: 0;
     margin-right: 0;
@@ -328,13 +344,11 @@ button:focus,
 .middlecard > .CardContainer {
     flex: 0 0 calc(50% - 6px);
     max-width: calc(50% - 6px);
-    box-sizing: border-box;
 }
 
 .middlecard > .about-left-column.card,
 .middlecard > .CardContainer .card {
     width: 100%;
-    box-sizing: border-box;
 }
 
 .about-content-wrapper,
@@ -344,11 +358,9 @@ button:focus,
     gap: 20px;
     width: 100%;
     max-width: 780px;
-    box-sizing: border-box;
 }
 
 .about-left-column {
-    box-sizing: border-box;
     justify-content: flex-start;
     width: 100%;
     height: auto;
@@ -359,13 +371,11 @@ button:focus,
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-sizing: border-box;
     width: 100%;
 }
 
 .CardContainer.about-right-column .card {
     width: 100%;
-    box-sizing: border-box;
 }
 
 
@@ -373,7 +383,6 @@ button:focus,
 {
     flex: 1 1 100%;
     width: 100%;
-    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
