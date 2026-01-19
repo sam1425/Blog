@@ -47,11 +47,11 @@
                     </h2>
                     <ul style="padding-left: 10px; list-style: none">
                         <li><span class="info">Name:</span> Sam</li>
-                        <li><span class="info">Age:</span> 18</li>
+                        <li><span class="info">Age:</span> 19</li>
                         <li><span class="info">Gender:</span> Male</li>
                         <li>
-                            <span class="info">Fluent:</span> Spanish(native),
-                            English
+                            <span class="info">Languages:</span> Spanish(native),
+                            English(fluent)
                         </li>
                         <li>
                             <span class="info">Status:</span> Undefined by the
@@ -79,7 +79,7 @@
                     <div class="card">
                         <p>
                             Hi there! I'm Samuel, but you can call me
-                            <strong>Sam</strong>. A 18-year-old PC enthusiast
+                            <strong>Sam</strong>. A 19-year-old PC enthusiast
                             (aka computer nerd) who enjoys programming in his
                             free time. Originally from
                             <span id="colombia"
@@ -108,12 +108,12 @@
                                     "
                                     >ia</span
                                 ></span
-                            >, with a strong command of English. Most people
-                            describe me as quiet or a 'loner.' Friends are few
+                            >. Most people
+                            describe me as quiet. Friends are few
                             (at least those I truly consider as such), but feel
-                            free to reach out anytime on these as you may have
-                            guessed i like a lot fonts all kinds but specially
-                            the pixelated ones <a href="#channels">channels</a>!
+                            free to reach out anytime on <a href="#channels">here</a>
+                             these as you may haveguessed i like a lot fonts all kinds but specially
+                             the pixelated ones
                         </p>
                     </div>
 
@@ -121,7 +121,7 @@
                         <h2>who is me</h2>
                         <p>
                             I don't have the answer to that, but I'm a person
-                            who loves and learning new things.
+                            who loves learning new things.
                         </p>
                     </div>
 
@@ -141,6 +141,7 @@
                             everyone calls it (corner)
                         </p>
                     </div>
+
                 </div>
             </div>
             <div class="sidebar2">
@@ -155,14 +156,14 @@
         </footer>
     <script>
         const colorTooltip = document.querySelector('span.tooltip[style*="#00ffff"]');
-        
+
         if (colorTooltip) {
             colorTooltip.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const styleAttr = colorTooltip.getAttribute('style') || '';
                 const match = styleAttr.match(/--tooltip-content:\s*['"]?([^';"]*)['"]?/);
                 const tooltipContent = match ? match[1] : '';
-                
+
                 if (tooltipContent) {
                     // Fallback method for older browsers or local files
                     const textArea = document.createElement('textarea');
@@ -171,7 +172,7 @@
                     textArea.select();
                     document.execCommand('copy');
                     document.body.removeChild(textArea);
-                    
+
                     const originalContent = colorTooltip.textContent;
                     colorTooltip.textContent = '<Copied>';
                     setTimeout(() => {
