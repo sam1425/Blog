@@ -54,10 +54,13 @@ body {
     min-height: 100vh;
     margin: 0;
 
-    background-image: url("src/img/010.jpg");
+    background-image: url("src/img/background.webp");
     background-size: 400px;
     background-repeat: repeat;
     background-attachment: fixed;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
 
     align-items: center;
     overflow-x: hidden;
@@ -153,6 +156,8 @@ body {
     width: 220px;
     flex-shrink: 0;
     align-self: flex-start;
+    min-width: 150px;
+    max-width: 200px;
 }
 
 
@@ -161,7 +166,6 @@ body {
     font-size: 1.3em;
     padding: 10px 0px;
     padding-left: 10px;
-    min-width: 200px;
     width: 100%;
     max-width: 780px;
     justify-content: normal;
@@ -174,8 +178,6 @@ body {
     height: fit-content;
     font-size: 1.3em;
     padding: 0px 0px;
-    min-width: 150px;
-    max-width: 200px;
     align-self: flex-start;
     flex-shrink: 0;
 }
