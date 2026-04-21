@@ -37,6 +37,7 @@ function getDisplayUrl(url) {
 async function loadComponents(container = document) {
     const components = [
         { selector: '#sidebar-placeholder', url: '/components/sidebar.html' },
+        { selector: '#sidebar2-placeholder', url: '/components/sidebar2.html' },
         { selector: 'footer', url: '/components/footer.html' }
     ];
 

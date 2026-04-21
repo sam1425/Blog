@@ -20,79 +20,58 @@
             <div class="CardContainer">
                 <div class="card cardmax" >
                     <h2>
-                        Hey
+                        Welcome,
                         <span
                             class="tooltip"
                             style="
-                                --tooltip-content: &quot;a person that visit lots of websites&quot;;
+                                --tooltip-content: &quot;A frequent traveler of the digital world&quot;;
                             "
                             >surfer</span
-                        >
-                        this is my web
+                        >.
                     </h2>
                     <p>
-                        This is a website about you, if you find yourself here
-                        you either are my friend or you have been searching lots
-                        of websites my friend so congrats! you are in a very
-                        isolated part of the internet
+                        If you've found your way here, you're likely a friend or an avid 
+                        explorer of the web's quieter corners. In either case, 
+                        welcome to this small, isolated patch of the internet.
                     </p>
                 </div>
                 <div class="card cardmax">
                     <h2>why neocities?</h2>
                     <p>
-                        short answer because it's free long answer because it's
-                        free and i liked the people and it made me feel part of
-                        a community
+                        The short answer is accessibility. The longer answer is that 
+                        this platform provides a sense of community and personal 
+                        expression that makes the web feel a bit more human again.
                     </p>
                 </div>
-                <div class="card cardmax">
-                    <p>cool stuff:</p>
-                    <p>
-                        This will be my little space of the internet or like
-                        everyone calls it (corner)
-                    </p>
+                <div class="card cardmax" id="cool-stuff">
+                    <h2>some thoughts:</h2>
+                    <p id="random-quote">"I’m treating this as my small, personal corner of the digital world."</p>
+                    <button class="btn-start" style="margin-top: 10px; font-size: 0.8rem;" onclick="newQuote()">New Quote</button>
                 </div>
+
+                <script>
+                    const quotes = [
+                        "This will be my little space of the internet or like everyone calls it (corner)",
+                        "Keep browsing, surfer. The internet is a big ocean.",
+                        "Programming is just thinking with more semicolons.",
+                        "Pixel art is the language of the soul.",
+                        "Stay isolated, stay cool.",
+                        "Hollow Knight is a masterpiece.",
+                        "Neocities feels like the old web, and I love it."
+                    ];
+                    function newQuote() {
+                        const el = document.getElementById('random-quote');
+                        const q = quotes[Math.floor(Math.random() * quotes.length)];
+                        el.style.opacity = 0;
+                        setTimeout(() => {
+                            el.textContent = `"${q}"`;
+                            el.style.opacity = 1;
+                        }, 200);
+                    }
+                </script>
             </div>
-                <div class="sidebar2" >
-                    <a
-                        class="hov"
-                        href="https://leviathren.neocities.org/"
-                        target="_blank"
-                        ><img src="/assets/img/leviathrenbutton.gif"
-                    /></a>
-                    <a
-                        class="hov"
-                        href="https://rainworldgame.com/"
-                        target="_blank"
-                        ><img src="/assets/img/Rain_World_button.gif"
-                    /></a>
-                    <a
-                        class="hov"
-                        href="https://leviathren.neocities.org/"
-                        target="_blank"
-                        ><img
-                            style="max-height: 31px; max-width: 88px"
-                            src="/assets/img/not-fd.svg"
-                    /></a>
-                    <a
-                        class="hov"
-                        href="https://leviathren.neocities.org/"
-                        target="_blank"
-                        ><img src="/assets/img/New button.gif"
-                    /></a>
-                    <a
-                        class="hov"
-                        href="https://fauux.neocities.org/"
-                        target="_blank"
-                        ><img src="/assets/img/fauux.gif"
-                    /></a>
-                    <a
-                        class="hov"
-                        href="https://leviathren.neocities.org/"
-                        target="_blank"
-                        ><img src="/assets/img/neocities.gif"
-                    /></a>
-            </div>
+            
+            <div id="sidebar2-placeholder"></div>
         </div>
         
         <footer></footer>
