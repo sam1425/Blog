@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>mini games | sam's</title>
-        <link rel="stylesheet" type="text/css" href="../../main.css" />
-        <link rel="stylesheet" type="text/css" href="../../gruv_dark/gruv.css" />
+        <link rel="stylesheet" type="text/css" href="/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/css/gruv.css" />
         <style>
             .game-container {
                 display: flex;
@@ -102,9 +102,9 @@
                     let items = [];
                     let keys = {};
 
-                    // Use the cat image from the repo
+                    // Use the cat image from the new assets path
                     const catImg = new Image();
-                    catImg.src = '../../majo/mimagenes/cathand.jpg';
+                    catImg.src = '/assets/img/cathand.jpg';
 
                     function spawnItem() {
                         items.push({
@@ -304,10 +304,8 @@
             </script>
         </main>
 
-        <footer>
-            <span id="copy"> 🞜 c0mplex © 2025. </span>
-        </footer>
+        <footer></footer>
 
-        <script src="../../spa.js"></script>
+        <script src="/js/spa.js"></script>
     </body>
 </html>
