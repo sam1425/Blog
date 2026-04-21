@@ -88,11 +88,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 5px 0;
     margin-top: auto;
     background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
-    border-top: 1px solid var(--fg2);
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
 }
 
 #copy {
@@ -146,7 +144,7 @@ footer {
     padding: 10px 20px;
     border: 2px solid var(--fg2);
     border-radius: 4px;
-    background: var(--bg_h);
+    background: var(--bg);
     justify-content: center;
     align-items: flex-start;
     max-width: 780px;
