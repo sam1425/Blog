@@ -65,20 +65,7 @@ p
 body
 {
     font-family: fairy;
-
-    display: flex;
-
-    height: auto;
-    margin: 0;
-    padding-top: 30px;
-
     text-align: center;
-    background-image: url("pics/seamless.jpg");
-    background-repeat: ;
-
-    align-items: center;
-    flex-direction: column;
-    overflow-y: auto;
 }
 
 h1

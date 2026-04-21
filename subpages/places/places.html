@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../../main.css" />
         <link rel="stylesheet" type="text/css" href="places.css" />
         <link rel="stylesheet" type="text/css" href="carousel.css" />
         <link rel="stylesheet" type="text/css" href="../gruv_dark/gruv.css" />
-        <link rel="icon" type="image/X-icon" href="src/img/kirbyj.ico" />
+        <link rel="icon" type="image/X-icon" href="../../src/img/kirbyj.ico" />
         <title>places to visit</title>
     </head>
     <body>
@@ -14,8 +15,12 @@
             <span id="places">Places to visit</span>
         </div>
         <div id="content">
-            <p>Solo una pagina con unas cuantas fotos para ver que lugares les parecen mejor para el viaje</p>
-            <div class="CardContainer">
+            <div id="leftside">
+                <div id="sidebar-placeholder"></div>
+            </div>
+
+            <div class="CardContainer" style="flex-direction: column; align-items: center;">
+                <p>Solo una pagina con unas cuantas fotos para ver que lugares les parecen mejor para el viaje</p>
                 <div class="card">
                     <li>Guajira</li>
                     <section class="carousel" aria-label="Gallery">
@@ -258,8 +263,9 @@
                 </div>
             </div>
         </div>
-                 <footer>
-                    <span id="copy"> With love, sam. </span>
-                </footer>
-   </body>
+        
+        <footer></footer>
+
+        <script src="../../spa.js"></script>
+    </body>
 </html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="/main.css" />
+        <link rel="stylesheet" type="text/css" href="/gruv_dark/gruv.css" />
+        <title>404 | Not Found</title>
+        <style>
+            .error-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                min-height: 70vh;
+                width: 100%;
+            }
+            .error-code {
+                font-family: 'daydream', sans-serif;
+                font-size: 5rem;
+                color: var(--blue);
+                margin: 0;
+            }
+            .card.error-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                max-width: 500px;
+                padding: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <span id="c0mplex">Error 404</span>
+        </div>
+        <main id="content">
+            <div class="error-container">
+                <div class="card error-card">
+                    <h1 class="error-code">404</h1>
+                    <h2>Lost in the corner?</h2>
+                    <p>
+                        The page you are looking for doesn't exist or has been moved
+                        to another isolated part of the internet.
+                    </p>
+                    <a href="/index.html" class="hov" style="color: var(--blue); text-decoration: underline; margin-top: 15px;">Go back home</a>
+                </div>
+            </div>
+        </main>
+
+        <footer></footer>
+
+        <script src="/spa.js"></script>
+    </body>
+</html>
