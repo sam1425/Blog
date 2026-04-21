@@ -16,6 +16,7 @@
                 max-width: 800px;
             }
             .canvas-wrapper {
+                cursor: cross;
                 position: relative;
                 border: 4px solid var(--fg2);
                 border-radius: 8px;
@@ -26,7 +27,7 @@
             canvas {
                 display: block;
                 image-rendering: pixelated;
-                cursor: crosshair;
+                cursor: pointer;
             }
             .game-info {
                 text-align: center;
@@ -57,19 +58,16 @@
             <div id="leftside">
                 <div id="sidebar-placeholder"></div>
             </div>
-
             <div class="game-container">
-                <!-- Game 1: Cat Catch -->
+                <!-- Game 1: Autotiling -->
                 <div class="card">
-                    <h2>Cat Catch</h2>
-                    <p>Move the cat with [A/D] or [Left/Right] arrows to catch the falling hearts!</p>
-                    <div class="canvas-wrapper">
-                        <canvas id="catGame" width="400" height="400"></canvas>
-                    </div>
-                    <div class="game-info">
-                        <span id="catScore">Score: 0</span>
-                        <br>
-                        <button class="btn-start" id="startCatGame">Start Game</button>
+                    <h2>Autotiling (Lua/WASM)</h2>
+                    <p>A procedural autotiling demonstration compiled from Lua to WASM.</p>
+                    <div class="canvas-wrapper" style="width: 640; height: 320px;">
+                        <div class="game-overlay" onclick="this.style.opacity='0'; setTimeout(() => this.style.display='none', 300);">
+                            <span>Boot Game</span>
+                        </div>
+                        <iframe src="/subpages/games/autotiling/autotiling.html" width="640" height="320" frameborder="0" loading="lazy" style="cursor: default;"></iframe>
                     </div>
                 </div>
 
@@ -89,109 +87,6 @@
             </div>
 
             <script>
-                // --- Game 1: Cat Catch ---
-                (function initCatGame() {
-                    const canvas = document.getElementById('catGame');
-                    const ctx = canvas.getContext('2d');
-                    const scoreEl = document.getElementById('catScore');
-                    const startBtn = document.getElementById('startCatGame');
-                    
-                    let score = 0;
-                    let gameActive = false;
-                    let player = { x: 175, y: 340, w: 50, h: 50, speed: 7 };
-                    let items = [];
-                    let keys = {};
-
-                    // Use the cat image from the new assets path
-                    const catImg = new Image();
-                    catImg.src = '/assets/img/cathand.jpg';
-
-                    function spawnItem() {
-                        items.push({
-                            x: Math.random() * (canvas.width - 20),
-                            y: -20,
-                            size: 20,
-                            speed: 2 + Math.random() * 3
-                        });
-                    }
-
-                    function update() {
-                        if (!gameActive) return;
-
-                        if (keys['ArrowLeft'] || keys['a']) player.x -= player.speed;
-                        if (keys['ArrowRight'] || keys['d']) player.x += player.speed;
-                        
-                        if (player.x < 0) player.x = 0;
-                        if (player.x > canvas.width - player.w) player.x = canvas.width - player.w;
-
-                        items.forEach((item, index) => {
-                            item.y += item.speed;
-                            
-                            // Collision
-                            if (item.y + item.size > player.y && 
-                                item.x + item.size > player.x && 
-                                item.x < player.x + player.w) {
-                                items.splice(index, 1);
-                                score++;
-                                scoreEl.textContent = `Score: ${score}`;
-                            }
-
-                            // Off screen
-                            if (item.y > canvas.height) {
-                                items.splice(index, 1);
-                                if (score > 0) score--;
-                                scoreEl.textContent = `Score: ${score}`;
-                            }
-                        });
-
-                        if (Math.random() < 0.03) spawnItem();
-                    }
-
-                    function draw() {
-                        ctx.fillStyle = '#282828';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                        // Draw Player
-                        ctx.drawImage(catImg, player.x, player.y, player.w, player.h);
-
-                        // Draw Items
-                        ctx.fillStyle = '#fb4934'; // Hearts
-                        items.forEach(item => {
-                            ctx.beginPath();
-                            ctx.arc(item.x + 10, item.y + 10, 8, 0, Math.PI * 2);
-                            ctx.fill();
-                        });
-
-                        if (!gameActive) {
-                            ctx.fillStyle = 'rgba(0,0,0,0.5)';
-                            ctx.fillRect(0,0,canvas.width, canvas.height);
-                            ctx.fillStyle = '#ebdbb2';
-                            ctx.font = '20px shorthike';
-                            ctx.textAlign = 'center';
-                            ctx.fillText('Click Start to Play', canvas.width/2, canvas.height/2);
-                        }
-                    }
-
-                    function gameLoop() {
-                        update();
-                        draw();
-                        requestAnimationFrame(gameLoop);
-                    }
-
-                    window.addEventListener('keydown', e => keys[e.key] = true);
-                    window.addEventListener('keyup', e => keys[e.key] = false);
-                    
-                    startBtn.onclick = () => {
-                        score = 0;
-                        scoreEl.textContent = `Score: 0`;
-                        items = [];
-                        gameActive = true;
-                        startBtn.blur();
-                    };
-
-                    gameLoop();
-                })();
-
                 // --- Game 2: Neon Runner ---
                 (function initRunnerGame() {
                     const canvas = document.getElementById('runnerGame');
@@ -234,7 +129,7 @@
 
                         obstacles.forEach((obs, index) => {
                             obs.x -= 5;
-                            
+
                             // Collision
                             if (player.x < obs.x + obs.w &&
                                 player.x + player.w > obs.x &&
