@@ -30,50 +30,55 @@
                         >.
                     </h2>
                     <p>
-                        If you've found your way here, you're likely a friend or an avid 
-                        explorer of the web's quieter corners. In either case, 
+                        If you've found your way here, you're likely a friend or an avid
+                        explorer of the web's quieter corners. In either case,
                         welcome to this small, isolated patch of the internet.
                     </p>
                 </div>
                 <div class="card cardmax">
                     <h2>why neocities?</h2>
                     <p>
-                        The short answer is accessibility. The longer answer is that 
-                        this platform provides a sense of community and personal 
+                        The short answer is accessibility. The longer answer is that
+                        this platform provides a sense of community and personal
                         expression that makes the web feel a bit more human again.
                     </p>
                 </div>
                 <div class="card cardmax" id="cool-stuff">
                     <h2>some thoughts:</h2>
-                    <p id="random-quote">"I’m treating this as my small, personal corner of the digital world."</p>
-                    <button class="btn-start" style="margin-top: 10px; font-size: 0.8rem;" onclick="newQuote()">New Quote</button>
+                    <p id="random-quote" 
+                       class="tooltip" 
+                       style="--tooltip-content: 'Click for a new quote'; cursor: pointer; transition: opacity 0.4s;" 
+                       onclick="newQuote()">“I’m treating this as my small, personal corner of the digital world.”</p>
                 </div>
 
                 <script>
                     const quotes = [
-                        "This will be my little space of the internet or like everyone calls it (corner)",
-                        "Keep browsing, surfer. The internet is a big ocean.",
+                        "If you can’t explain it simply, you don’t understand it well enough.",
+                        "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
                         "Programming is just thinking with more semicolons.",
-                        "Pixel art is the language of the soul.",
-                        "Stay isolated, stay cool.",
-                        "Hollow Knight is a masterpiece.",
-                        "Neocities feels like the old web, and I love it."
+                        "Make it work, make it right, make it fast."
                     ];
                     function newQuote() {
                         const el = document.getElementById('random-quote');
+                        
+                        // Remove the tooltip hint after the first interaction
+                        if (el.classList.contains('tooltip')) {
+                            el.classList.remove('tooltip');
+                        }
+
                         const q = quotes[Math.floor(Math.random() * quotes.length)];
                         el.style.opacity = 0;
                         setTimeout(() => {
-                            el.textContent = `"${q}"`;
+                            el.textContent = `“${q}”`;
                             el.style.opacity = 1;
                         }, 200);
                     }
                 </script>
             </div>
-            
+
             <div id="sidebar2-placeholder"></div>
         </div>
-        
+
         <footer></footer>
 
         <script src="/js/spa.js"></script>
