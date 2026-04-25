@@ -49,6 +49,10 @@
       }
 
       .canvas-wrapper:fullscreen {
+          transform: none;
+          width: 1280px;
+          height: 720px;
+          flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -57,31 +61,31 @@
       }
 
       .btn-exit {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      padding: 5px 8px;
-      background: rgba(40, 40, 40, 0.85);
-      color: var(--fg);
-      border: 1px solid var(--fg4);
-      cursor: pointer;
-      border-radius: 4px;
-      font-family: 'shorthike', sans-serif;
-      z-index: 10;
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          padding: 5px 8px;
+          background: rgba(40, 40, 40, 0.85);
+          color: var(--fg);
+          border: 1px solid var(--fg4);
+          cursor: pointer;
+          border-radius: 4px;
+          font-family: 'shorthike', sans-serif;
+          z-index: 10;
       }
 
       .btn-fullscreen {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      padding: 5px 15px;
-      background: rgba(40, 40, 40, 0.85);
-      color: var(--fg);
-      border: 1px solid var(--fg4);
-      cursor: pointer;
-      border-radius: 4px;
-      font-family: 'shorthike', sans-serif;
-      z-index: 10;
+          position: absolute;
+          bottom: 8px;
+          right: 8px;
+          padding: 5px 15px;
+          background: rgba(40, 40, 40, 0.85);
+          color: var(--fg);
+          border: 1px solid var(--fg4);
+          cursor: pointer;
+          border-radius: 4px;
+          font-family: 'shorthike', sans-serif;
+          z-index: 10;
       }
     </style>
   </head>
@@ -124,7 +128,7 @@
               <div class="game-overlay" onclick="loadGame(this, '/subpages/games/love.js/kingofnaipes.html')">
                 <span>▶ load</span>
               </div>
-              <iframe width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+              <iframe width="800" height="600" frameborder="0" allowfullscreen></iframe>
             </div>
             <button class="btn-fullscreen" onclick="toggleFullscreen(this.previousElementSibling)">
               Fullscreen
