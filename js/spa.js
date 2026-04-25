@@ -21,16 +21,17 @@ const initialFetchUrl = getFetchUrl(window.location.href);
 const initialContent = document.documentElement.outerHTML;
 cache.set(initialFetchUrl, initialContent);
 
-// If we are currently on the 404 page (either by reload or error), 
-// cache this as the master 404 template to avoid ever fetching it.
+// 404 page (either by reload or error),
 if (document.title.includes('404')) {
     cache.set(getFetchUrl('/404.html'), initialContent);
 }
 
+// function getDisplayUrl(url) {
+//     return url.replace(/\.html$/, '').replace(/\/index$/, '/');
+// }
 function getDisplayUrl(url) {
-    return url.replace(/\.html$/, '').replace(/\/index$/, '/');
+    return url;
 }
-
 /**
  * Component Loader: Fetches and injects shared parts (Sidebar, Footer).
  */
@@ -61,15 +62,15 @@ async function loadComponents(container = document) {
 async function fetchPage(url) {
     const fetchUrl = getFetchUrl(url);
     if (cache.has(fetchUrl)) return cache.get(fetchUrl);
-    
+
     try {
         const res = await fetch(fetchUrl);
-        
+
         // Handle 404 Not Found
         if (res.status === 404) {
             const master404Url = getFetchUrl('/404.html');
             if (cache.has(master404Url)) return cache.get(master404Url);
-            
+
             const errorRes = await fetch('/404.html');
             const errorHtml = await errorRes.text();
             cache.set(master404Url, errorHtml);
@@ -77,7 +78,7 @@ async function fetchPage(url) {
         }
 
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        
+
         const html = await res.text();
         cache.set(fetchUrl, html);
         return html;
@@ -89,7 +90,7 @@ async function fetchPage(url) {
 async function navigate(url, addHistory = true) {
     const contentContainer = document.querySelector('#content');
     const navbar = document.querySelector('.navbar');
-    
+
     if (!contentContainer) {
         window.location.href = url;
         return;
@@ -97,13 +98,13 @@ async function navigate(url, addHistory = true) {
 
     const currentUrl = new URL(window.location.href);
     const fetchUrl = getFetchUrl(url);
-    
+
     if (getFetchUrl(currentUrl.href) === fetchUrl && addHistory) {
         return;
     }
 
     contentContainer.style.opacity = '0';
-    
+
     try {
         const html = await fetchPage(fetchUrl);
         if (!html) {
@@ -114,7 +115,7 @@ async function navigate(url, addHistory = true) {
         const doc = parser.parseFromString(html, 'text/html');
         const newContent = doc.querySelector('#content');
         const newNavbar = doc.querySelector('.navbar');
-        
+
         if (!newContent) {
             window.location.href = url;
             return;
@@ -135,7 +136,6 @@ async function navigate(url, addHistory = true) {
 
         window.scrollTo(0, 0);
 
-        // Load components for the new content
         await loadComponents(contentContainer);
 
         executeScriptsInContainer(contentContainer);

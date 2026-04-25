@@ -1,206 +1,177 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>mini games | sam's</title>
-        <link rel="stylesheet" type="text/css" href="/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="/css/gruv.css" />
-        <style>
-            .game-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                width: 100%;
-                max-width: 800px;
-            }
-            .canvas-wrapper {
-                cursor: cross;
-                position: relative;
-                border: 4px solid var(--fg2);
-                border-radius: 8px;
-                background: #1d2021;
-                overflow: hidden;
-                box-shadow: var(--shadow-black);
-            }
-            canvas {
-                display: block;
-                image-rendering: pixelated;
-                cursor: pointer;
-            }
-            .game-info {
-                text-align: center;
-                margin-top: 10px;
-            }
-            .btn-start {
-                padding: 10px 20px;
-                background: var(--blue);
-                color: #282828;
-                border: none;
-                font-family: 'shorthike', sans-serif;
-                font-size: 1.2rem;
-                cursor: pointer;
-                border-radius: 4px;
-                margin-top: 10px;
-            }
-            .btn-start:hover {
-                background: var(--fg);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="navbar">
-            <span id="c0mplex">Mini Games</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mini games | sam's</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/gruv.css" />
+    <style>
+      .game-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          width: 100%;
+          max-width: 800px;
+      }
+      .canvas-wrapper {
+          cursor: cross;
+          position: relative;
+          border: 4px solid var(--fg2);
+          border-radius: 8px;
+          background: #1d2021;
+          overflow: hidden;
+          box-shadow: var(--shadow-black);
+      }
+      canvas {
+          display: block;
+          image-rendering: pixelated;
+          cursor: pointer;
+      }
+      .game-info {
+          text-align: center;
+          margin-top: 10px;
+      }
+      .btn-start {
+          padding: 10px 20px;
+          background: var(--blue);
+          color: #282828;
+          border: none;
+          font-family: 'shorthike', sans-serif;
+          font-size: 1.2rem;
+          cursor: pointer;
+          border-radius: 4px;
+          margin-top: 10px;
+      }
+      .btn-start:hover {
+          background: var(--fg);
+      }
+
+      .canvas-wrapper:fullscreen {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          overflow: visible;
+      }
+
+      .btn-exit {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 5px 8px;
+      background: rgba(40, 40, 40, 0.85);
+      color: var(--fg);
+      border: 1px solid var(--fg4);
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: 'shorthike', sans-serif;
+      z-index: 10;
+      }
+
+      .btn-fullscreen {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      padding: 5px 15px;
+      background: rgba(40, 40, 40, 0.85);
+      color: var(--fg);
+      border: 1px solid var(--fg4);
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: 'shorthike', sans-serif;
+      z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <span id="c0mplex">Mini Games</span>
+    </div>
+
+    <main id="content">
+      <div id="leftside">
+        <div id="sidebar-placeholder"></div>
+      </div>
+      <div class="game-container">
+        <!-- Game 1: Autotiling -->
+        <div class="card">
+          <h2>Autotiling (Lua/WASM)</h2>
+          <p>A procedural autotiling demonstration compiled from Lua to WASM.</p>
+          <div style="position: relative; display: inline-block;">
+            <div class="canvas-wrapper" style="width: 640px; height: 320px;">
+              <div class="game-overlay" onclick="loadGame(this, '/subpages/games/love.js/autotiling.html')">
+                <span>▶ load</span>
+              </div>
+              <iframe width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullscreen(this.previousElementSibling)">
+              Fullscreen
+            </button>
+            <button class="btn-exit" onclick="unloadGame(this.parentElement.querySelector('.canvas-wrapper'))">
+              ✖
+            </button>
+          </div>
         </div>
 
-        <main id="content">
-            <div id="leftside">
-                <div id="sidebar-placeholder"></div>
+        <!-- game 2: kingofnaipes-->
+        <div class="card">
+          <h2>king of naipes</h2>
+          <p>a game inspirated on vampire survivors</p>
+          <div style="position: relative; display: inline-block;">
+            <div class="canvas-wrapper" style="width: 640px; height: 320px;">
+              <div class="game-overlay" onclick="loadGame(this, '/subpages/games/love.js/kingofnaipes.html')">
+                <span>▶ load</span>
+              </div>
+              <iframe width="1280" height="720" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="game-container">
-                <!-- Game 1: Autotiling -->
-                <div class="card">
-                    <h2>Autotiling (Lua/WASM)</h2>
-                    <p>A procedural autotiling demonstration compiled from Lua to WASM.</p>
-                    <div class="canvas-wrapper" style="width: 640; height: 320px;">
-                        <div class="game-overlay" onclick="this.style.opacity='0'; setTimeout(() => this.style.display='none', 300);">
-                            <span>Boot Game</span>
-                        </div>
-                        <iframe src="/subpages/games/autotiling/autotiling.html" width="640" height="320" frameborder="0" loading="lazy" style="cursor: default;"></iframe>
-                    </div>
-                </div>
+            <button class="btn-fullscreen" onclick="toggleFullscreen(this.previousElementSibling)">
+              Fullscreen
+            </button>
+            <button class="btn-exit" onclick="unloadGame(this.parentElement.querySelector('.canvas-wrapper'))">
+              ✖
+            </button>
 
-                <!-- Game 2: Neon Runner -->
-                <div class="card">
-                    <h2>Neon Runner</h2>
-                    <p>Press [Space] or [Click] to jump over the obstacles!</p>
-                    <div class="canvas-wrapper">
-                        <canvas id="runnerGame" width="400" height="200"></canvas>
-                    </div>
-                    <div class="game-info">
-                        <span id="runnerScore">Score: 0</span>
-                        <br>
-                        <button class="btn-start" id="startRunnerGame">Start Game</button>
-                    </div>
-                </div>
-            </div>
+          </div>
+        </div>
+        <script>
+          function toggleFullscreen(wrapper) {
+              if (!document.fullscreenElement) {
+                  wrapper.requestFullscreen().catch(err => {
+                      console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                  });
+              } else {
+                  document.exitFullscreen();
+              }
+          }
 
-            <script>
-                // --- Game 2: Neon Runner ---
-                (function initRunnerGame() {
-                    const canvas = document.getElementById('runnerGame');
-                    const ctx = canvas.getContext('2d');
-                    const scoreEl = document.getElementById('runnerScore');
-                    const startBtn = document.getElementById('startRunnerGame');
+          function loadGame(overlay, src) {
+              const wrapper = overlay.parentElement;
+              const iframe = wrapper.querySelector('iframe');
+              const exitBtn = wrapper.parentElement.querySelector('.btn-exit'); // go up one level
+              iframe.src = src;
+              overlay.style.opacity = '0';
+              setTimeout(() => {
+                  overlay.style.display = 'none';
+                  if (exitBtn) exitBtn.style.display = 'block';
+              }, 300);
+          }
 
-                    let gameActive = false;
-                    let score = 0;
-                    let player = { x: 50, y: 150, w: 30, h: 30, dy: 0, jumpPower: -12, grounded: true };
-                    let obstacles = [];
-                    let frame = 0;
-                    const gravity = 0.8;
+          function unloadGame(wrapper) {
+              const iframe = wrapper.querySelector('iframe');
+              const overlay = wrapper.querySelector('.game-overlay');
+              const exitBtn = wrapper.parentElement.querySelector('.btn-exit'); // same fix here
+              iframe.src = '';
+              exitBtn.style.display = 'none';
+              overlay.style.display = 'flex';
+              setTimeout(() => overlay.style.opacity = '1', 10);
+          }
+        </script>
+    </main>
 
-                    function jump() {
-                        if (player.grounded && gameActive) {
-                            player.dy = player.jumpPower;
-                            player.grounded = false;
-                        }
-                    }
+    <footer></footer>
 
-                    window.addEventListener('keydown', e => { if (e.code === 'Space') jump(); });
-                    canvas.onclick = jump;
-
-                    function update() {
-                        if (!gameActive) return;
-
-                        player.dy += gravity;
-                        player.y += player.dy;
-
-                        if (player.y + player.h > 180) {
-                            player.y = 180 - player.h;
-                            player.dy = 0;
-                            player.grounded = true;
-                        }
-
-                        if (frame % 80 === 0) {
-                            obstacles.push({ x: canvas.width, y: 150, w: 20, h: 30 });
-                        }
-
-                        obstacles.forEach((obs, index) => {
-                            obs.x -= 5;
-
-                            // Collision
-                            if (player.x < obs.x + obs.w &&
-                                player.x + player.w > obs.x &&
-                                player.y < obs.y + obs.h &&
-                                player.y + player.h > obs.y) {
-                                gameActive = false;
-                                alert('Game Over! Score: ' + score);
-                            }
-
-                            if (obs.x + obs.w < 0) {
-                                obstacles.splice(index, 1);
-                                score++;
-                                scoreEl.textContent = `Score: ${score}`;
-                            }
-                        });
-
-                        frame++;
-                    }
-
-                    function draw() {
-                        ctx.fillStyle = '#1d2021';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                        // Ground
-                        ctx.strokeStyle = '#83a598';
-                        ctx.beginPath();
-                        ctx.moveTo(0, 180);
-                        ctx.lineTo(canvas.width, 180);
-                        ctx.stroke();
-
-                        // Player
-                        ctx.fillStyle = '#b8bb26';
-                        ctx.fillRect(player.x, player.y, player.w, player.h);
-
-                        // Obstacles
-                        ctx.fillStyle = '#fb4934';
-                        obstacles.forEach(obs => {
-                            ctx.fillRect(obs.x, obs.y, obs.w, obs.h);
-                        });
-
-                        if (!gameActive && frame > 0) {
-                             ctx.fillStyle = '#ebdbb2';
-                             ctx.font = '20px shorthike';
-                             ctx.textAlign = 'center';
-                             ctx.fillText('Game Over!', canvas.width/2, canvas.height/2);
-                        }
-                    }
-
-                    function gameLoop() {
-                        update();
-                        draw();
-                        requestAnimationFrame(gameLoop);
-                    }
-
-                    startBtn.onclick = () => {
-                        score = 0;
-                        scoreEl.textContent = `Score: 0`;
-                        obstacles = [];
-                        player.y = 150;
-                        gameActive = true;
-                        frame = 1;
-                        startBtn.blur();
-                    };
-
-                    gameLoop();
-                })();
-            </script>
-        </main>
-
-        <footer></footer>
-
-        <script src="/js/spa.js"></script>
-    </body>
+    <script src="/js/spa.js"></script>
+  </body>
 </html>
